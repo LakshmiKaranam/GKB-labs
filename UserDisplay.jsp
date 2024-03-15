@@ -21,10 +21,10 @@
     <table class="m-auto" frame="box" rules="all">
     <tr>
         <th>Id</th>
-        <th>name</th>
-        <th>email</th>
-        <th>age</th>
-        <th>Dob</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Date Of Birth</th>
     </tr>
 
     <c:forEach items="${rs.rows}" var="row">
