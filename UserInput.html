@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GKB Labs</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/60108366f15c630f79fdc76f_6002086f72b727209601d42c_design-process-content-first-p-1080.jpeg');
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(64, 0, 64);
+        }
+
+        
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+	
+	<div class="container">
+		
+    <form  style="padding: 30px;" action="user" method="post" id="userForm">
+		 <div class="form-group">
+  			<label>Name:</label>
+  			<input type="text" placeholder="Enter Name" name="name"><br></div>
+   		<div class="form-group">
+  			<label>Email:</label>
+  			<input type="email" placeholder="Enter Email" id="email" name="email"><br></div>
+   		<div class="form-group">
+  			<label>Age :</label>
+  			<input type="number" placeholder="Enter Age" id="age" name="age"><br>
+  			<span id="ageError"></span><br>
+  		</div>
+   		<div class="form-group">
+  			<label>Dob :</label>
+  			<input type="date" name="Dob">
+  		</div>
+  		<input type="submit" class="btn" type="submit">
+  <br>
+  </form></div>
+   <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            var email = document.getElementById('email').value;
+            var age = document.getElementById('age').value;
+
+            // Validate email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid email format");
+                event.preventDefault();
+                return;
+            }
+
+            // Validate age is a positive integer
+            var ageInt = parseInt(age);
+            if (isNaN(ageInt) || ageInt <= 0) {
+                document.getElementById('ageError').style.display = 'inline';
+                alert("Age must be a positive value");
+                event.preventDefault();
+                return;
+            }
+            else{
+                document.getElementById('ageError').style.display = 'none';
+            }
+            
+        });
+    </script>
+</body>
+</html>
